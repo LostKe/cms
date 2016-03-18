@@ -1,4 +1,4 @@
-package com.guogee.bean;
+package com.cms.bean;
 
 public class User {
 	private String userName;

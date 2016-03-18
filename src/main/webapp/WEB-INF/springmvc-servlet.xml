@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
     http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
-	<context:component-scan base-package="com.guogee.*" />
+	<context:component-scan base-package="com.cms.*" />
 
 	<!-- 定义视图解析器 -->
 	<bean
