@@ -20,13 +20,12 @@
 	</bean>
 
 
-
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test" />
 		<property name="user" value="root" />
-		<property name="password" value=""/>
+		<property name="password" value="" />
 		<!--连接池中保留的最小连接数。 -->
 		<property name="minPoolSize" value="10" />
 		<!--连接池中保留的最大连接数。Default: 15 -->
@@ -39,7 +38,7 @@
 		<property name="initialPoolSize" value="10" />
 		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
 		<property name="idleConnectionTestPeriod" value="60" />
-	<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
 		<property name="acquireRetryAttempts" value="30" />
 		<property name="breakAfterAcquireFailure" value="true" />
 		<property name="testConnectionOnCheckout" value="false" />
@@ -50,8 +49,15 @@
 		<property name="configLocation" value="/WEB-INF/mybatis-configuration.xml" />
 	</bean>
 
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.apache.ibatis.session.SqlSessionManager">
 		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 
 </beans>

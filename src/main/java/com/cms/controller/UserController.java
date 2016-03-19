@@ -24,7 +24,13 @@ public class UserController {
 	public ModelAndView showUser(ModelMap model,HttpServletRequest request){
 		User user=new User("KE", 12, "ShenZhen");
 		model.put("user", user);
-		return new ModelAndView("index", model);
+		Student s=new Student();
+		s.setName("aaaaa");
+		s.setAge(10);
+		s.setSex(1);
+		studentDao.insert(s);
+		throw new RuntimeException();
+//		return new ModelAndView("index", model);
 	}
 	
 	@RequestMapping("showStudent.do")

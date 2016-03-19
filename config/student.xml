@@ -15,4 +15,8 @@
 		select * from student
 	</select>
 	
+	<insert id="insert" parameterType="com.cms.bean.Student">
+		insert into  student(sname,sage,ssex) values(#{name},#{age},#{sex})
+	</insert>
+	
 </mapper>
