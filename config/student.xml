@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.cms.dao.StudentDao">
+	<resultMap type="com.cms.bean.Student" id="student">
+		<result column="sid" property="id" />
+		<result column="sname" property="name" />
+		<result column="sage" property="age" />
+		<result column="ssex" property="sex" />
+	</resultMap>
+	
+	<select id="queryAll" resultMap="student">
+		select * from student
+	</select>
+	
+</mapper>
