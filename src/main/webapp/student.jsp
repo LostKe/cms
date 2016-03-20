@@ -9,9 +9,10 @@
 </head>
 <body>
 	<table>
+	<tr><td>ID</td><td>姓名</td><td>年龄</td><td>性别</td></tr>
 	<c:forEach items="${students}" var="student" >
 	<tr>
-		<td>${student.id}</td> <td>${student.name}</td> <td>${student.age}</td> <td>${student.sex }</td>
+		<td>${student.id}</td> <td>${student.name}</td> <td>${student.age}</td> <td>${student.sex==1?'男':'女' }</td>
 	</tr>
 	</c:forEach>
 	</table>

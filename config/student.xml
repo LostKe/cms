@@ -5,10 +5,10 @@
 
 <mapper namespace="com.cms.dao.StudentDao">
 	<resultMap type="com.cms.bean.Student" id="student">
-		<result column="sid" property="id" />
-		<result column="sname" property="name" />
-		<result column="sage" property="age" />
-		<result column="ssex" property="sex" />
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="AGE" property="age" />
+		<result column="SEX" property="sex" />
 	</resultMap>
 	
 	<select id="queryAll" resultMap="student">
@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="insert" parameterType="com.cms.bean.Student">
-		insert into  student(sname,sage,ssex) values(#{name},#{age},#{sex})
+		insert into  student(NAME,AGE,SEX) values(#{name},#{age},#{sex})
 	</insert>
 	
 </mapper>
