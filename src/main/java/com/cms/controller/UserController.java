@@ -28,7 +28,6 @@ public class UserController {
 		s.setName("aaaaa");
 		s.setAge(10);
 		s.setSex(1);
-		studentDao.insert(s);
 		return new ModelAndView("index", model);
 	}
 	
