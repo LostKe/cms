@@ -29,8 +29,7 @@ public class UserController {
 		s.setAge(10);
 		s.setSex(1);
 		studentDao.insert(s);
-		throw new RuntimeException();
-//		return new ModelAndView("index", model);
+		return new ModelAndView("index", model);
 	}
 	
 	@RequestMapping("showStudent.do")

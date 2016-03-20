@@ -25,10 +25,8 @@ public class StudentDaoImpl implements StudentDao{
 	public boolean insert(Student student) {
 		StudentDao  mapper=session.getMapper(StudentDao.class);
 		mapper.insert(student);
-		
-		System.out.println("aaaaa");
-		System.out.println("bbbbbb");
 		throw new RuntimeException();
 	}
 
+	
 }
