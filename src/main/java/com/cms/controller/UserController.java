@@ -41,7 +41,7 @@ public class UserController {
 		return new ModelAndView("student", model);
 	}
 	
-	@RequestMapping(value="getStudent.do")@ResponseBody()
+	@RequestMapping("getStudent.do")@ResponseBody()
 	public String getStudent(HttpServletRequest request){
 		List<Student> students=studentDao.queryAll();
 		JSONObject result=new JSONObject();
