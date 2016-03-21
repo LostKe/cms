@@ -41,8 +41,7 @@ public class UserController {
 		return new ModelAndView("student", model);
 	}
 	
-	@RequestMapping(value="getStudent.do",produces = "text/plain;charset=UTF-8")
-	@ResponseBody()
+	@RequestMapping(value="getStudent.do")@ResponseBody()
 	public String getStudent(HttpServletRequest request){
 		List<Student> students=studentDao.queryAll();
 		JSONObject result=new JSONObject();
