@@ -13,11 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.cms.annotation.AuthPassport;
 import com.cms.bean.Student;
 import com.cms.bean.User;
 import com.cms.dao.StudentDao;
 
-@Controller
+@Controller 
 public class UserController {
 	
 	@Autowired
@@ -41,6 +42,7 @@ public class UserController {
 		return new ModelAndView("student", model);
 	}
 	
+	@AuthPassport
 	@RequestMapping("getStudent.do")@ResponseBody()
 	public String getStudent(HttpServletRequest request){
 		List<Student> students=studentDao.queryAll();
