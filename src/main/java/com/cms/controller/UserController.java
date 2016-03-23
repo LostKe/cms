@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,13 +26,10 @@ public class UserController {
 	private StudentDao studentDao;
 	
 	@RequestMapping("showUser.do")
-	public ModelAndView showUser(ModelMap model,HttpServletRequest request){
-		User user=new User("KE", 12, "ShenZhen");
+	public ModelAndView showUser(ModelMap model,@RequestParam("userName")String userName,@RequestParam("age")int age
+			,@RequestParam(value="addr",required=false)String addr){
+		User user=new User(userName, age, addr);
 		model.put("user", user);
-		Student s=new Student();
-		s.setName("aaaaa");
-		s.setAge(10);
-		s.setSex(1);
 		return new ModelAndView("index", model);
 	}
 	
