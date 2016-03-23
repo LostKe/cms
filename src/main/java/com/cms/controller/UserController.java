@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,12 +43,12 @@ public class UserController {
 	
 	@AuthPassport
 	@RequestMapping("getStudent.do")@ResponseBody()
-	public String getStudent(HttpServletRequest request){
+	public JSONObject getStudent(HttpServletRequest request){
 		List<Student> students=studentDao.queryAll();
 		JSONObject result=new JSONObject();
 		result.put("result", true);
 		result.put("value", JSON.toJSON(students));
-		return result.toJSONString();
+		return result;
 	}
 	
 	
