@@ -11,5 +11,7 @@
 	${user.age}
 	<hr>
 	${user.addr}
+	<hr>
+	${remote }
 </body>
 </html>
